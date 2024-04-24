@@ -1,0 +1,76 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+skinparam wrapWidth 300
+
+skinparam linetype polyline
+
+!$COMPONENT_CREATE_COLOR ?= "#2c890a"
+!$COMPONENT_UPDATE_COLOR ?= "#ca9705"
+!$COMPONENT_DELETE_COLOR ?= "#a30505"
+!$COMPONENT_ORIG_COLOR ?= $COMPONENT_BG_COLOR
+!$COMPONENT_EXT_COLOR ?= $EXTERNAL_COMPONENT_BG_COLOR
+
+!procedure LAYOUT_WITH_LEGEND_EXT()
+    hide stereotype
+    legend right
+        |<color:$LEGEND_TITLE_COLOR>**Легенда**</color> |
+        |<$COMPONENT_CREATE_COLOR> Новый компонент |
+        |<$COMPONENT_UPDATE_COLOR> Изменяемый компонент |
+        |<$COMPONENT_DELETE_COLOR> Удаляемый компонент |
+        |<$COMPONENT_ORIG_COLOR> Компонент без изменений |
+        |<$COMPONENT_EXT_COLOR> Внешний компонент |
+    endlegend
+!endprocedure
+
+!unquoted procedure NewComponent($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+  $getElementLine("rectangle", "new_component", $alias, $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+
+!unquoted procedure NewComponentDb($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+  $getElementLine("database", "new_component_db", $alias, $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+
+!unquoted procedure NewComponentQueue($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+  $getElementLine("queue", "new_component_queue", $alias, $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+
+!unquoted procedure UpdatedComponent($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+  $getElementLine("rectangle", "updated_component", $alias, $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+
+!unquoted procedure UpdatedComponentDb($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+  $getElementLine("database", "updated_component_db", $alias, $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+
+!unquoted procedure UpdatedComponentQueue($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+  $getElementLine("queue", "updated_component_queue", $alias, $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+
+!unquoted procedure DeletedComponent($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+  $getElementLine("rectangle", "deleted_component", $alias, $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+
+!unquoted procedure DeletedComponentDb($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+  $getElementLine("database", "deleted_component_db", $alias, $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+
+!unquoted procedure DeletedComponentQueue($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+  $getElementLine("queue", "deleted_component_queue", $alias, $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+
+UpdateElementStyle("new_component", $COMPONENT_CREATE_COLOR, $COMPONENT_FONT_COLOR, $COMPONENT_BORDER_COLOR)
+UpdateElementStyle("new_component_db", $COMPONENT_CREATE_COLOR, $COMPONENT_FONT_COLOR, $COMPONENT_BORDER_COLOR)
+UpdateElementStyle("new_component_queue", $COMPONENT_CREATE_COLOR, $COMPONENT_FONT_COLOR, $COMPONENT_BORDER_COLOR)
+UpdateElementStyle("updated_component", $COMPONENT_UPDATE_COLOR, $COMPONENT_FONT_COLOR, $COMPONENT_BORDER_COLOR)
+UpdateElementStyle("updated_component_db", $COMPONENT_UPDATE_COLOR, $COMPONENT_FONT_COLOR, $COMPONENT_BORDER_COLOR)
+UpdateElementStyle("updated_component_queue", $COMPONENT_UPDATE_COLOR, $COMPONENT_FONT_COLOR, $COMPONENT_BORDER_COLOR)
+UpdateElementStyle("deleted_component", $COMPONENT_DELETE_COLOR, $COMPONENT_FONT_COLOR, $COMPONENT_BORDER_COLOR)
+UpdateElementStyle("deleted_component_db", $COMPONENT_DELETE_COLOR, $COMPONENT_FONT_COLOR, $COMPONENT_BORDER_COLOR)
+UpdateElementStyle("deleted_component_queue", $COMPONENT_DELETE_COLOR, $COMPONENT_FONT_COLOR, $COMPONENT_BORDER_COLOR)
+
+UpdateElementStyle("updated_component", $COMPONENT_UPDATE_COLOR, $COMPONENT_FONT_COLOR, $COMPONENT_BORDER_COLOR)
+UpdateElementStyle("deleted_component", $COMPONENT_DELETE_COLOR, $COMPONENT_FONT_COLOR, $COMPONENT_BORDER_COLOR)
+
+
+@enduml
