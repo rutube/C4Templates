@@ -1,5 +1,6 @@
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Deployment.puml
 
 skinparam wrapWidth 300
 
@@ -21,6 +22,78 @@ skinparam linetype polyline
         |<$COMPONENT_ORIG_COLOR> Компонент без изменений |
         |<$COMPONENT_EXT_COLOR> Внешний компонент |
     endlegend
+!endprocedure
+
+!unquoted procedure NewSystem($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+  $getElementLine("rectangle", "new_system", $alias, $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+
+!unquoted procedure NewSystemDb($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+  $getElementLine("database", "new_system_db", $alias, $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+
+!unquoted procedure NewSystemQueue($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+  $getElementLine("queue", "new_system_queue", $alias, $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+
+!unquoted procedure UpdatedSystem($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+  $getElementLine("rectangle", "updated_system", $alias, $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+
+!unquoted procedure UpdatedSystemDb($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+  $getElementLine("database", "updated_system_db", $alias, $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+
+!unquoted procedure UpdatedSystemQueue($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+  $getElementLine("queue", "updated_system_queue", $alias, $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+
+!unquoted procedure DeletedSystem($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+  $getElementLine("rectangle", "deleted_system", $alias, $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+
+!unquoted procedure DeletedSystemDb($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+  $getElementLine("database", "deleted_system_db", $alias, $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+
+!unquoted procedure DeletedSystemQueue($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+  $getElementLine("queue", "deleted_system_queue", $alias, $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+
+!unquoted procedure NewContainer($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+  $getElementLine("rectangle", "new_container", $alias, $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+
+!unquoted procedure NewContainerDb($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+  $getElementLine("database", "new_container_db", $alias, $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+
+!unquoted procedure NewContainerQueue($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+  $getElementLine("queue", "new_container_queue", $alias, $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+
+!unquoted procedure UpdatedContainer($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+  $getElementLine("rectangle", "updated_container", $alias, $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+
+!unquoted procedure UpdatedContainerDb($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+  $getElementLine("database", "updated_container_db", $alias, $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+
+!unquoted procedure UpdatedContainerQueue($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+  $getElementLine("queue", "updated_container_queue", $alias, $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+
+!unquoted procedure DeletedContainer($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+  $getElementLine("rectangle", "deleted_container", $alias, $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+
+!unquoted procedure DeletedContainerDb($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+  $getElementLine("database", "deleted_container_db", $alias, $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+
+!unquoted procedure DeletedContainerQueue($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+  $getElementLine("queue", "deleted_container_queue", $alias, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
 !unquoted procedure NewComponent($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
@@ -59,6 +132,28 @@ skinparam linetype polyline
   $getElementLine("queue", "deleted_component_queue", $alias, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
+UpdateElementStyle("new_system", $COMPONENT_CREATE_COLOR, $COMPONENT_FONT_COLOR, $COMPONENT_BORDER_COLOR)
+UpdateElementStyle("new_system_db", $COMPONENT_CREATE_COLOR, $COMPONENT_FONT_COLOR, $COMPONENT_BORDER_COLOR)
+UpdateElementStyle("new_system_queue", $COMPONENT_CREATE_COLOR, $COMPONENT_FONT_COLOR, $COMPONENT_BORDER_COLOR)
+UpdateElementStyle("updated_system", $COMPONENT_UPDATE_COLOR, $COMPONENT_FONT_COLOR, $COMPONENT_BORDER_COLOR)
+UpdateElementStyle("updated_system_db", $COMPONENT_UPDATE_COLOR, $COMPONENT_FONT_COLOR, $COMPONENT_BORDER_COLOR)
+UpdateElementStyle("updated_system_queue", $COMPONENT_UPDATE_COLOR, $COMPONENT_FONT_COLOR, $COMPONENT_BORDER_COLOR)
+UpdateElementStyle("deleted_system", $COMPONENT_DELETE_COLOR, $COMPONENT_FONT_COLOR, $COMPONENT_BORDER_COLOR)
+UpdateElementStyle("deleted_system_db", $COMPONENT_DELETE_COLOR, $COMPONENT_FONT_COLOR, $COMPONENT_BORDER_COLOR)
+UpdateElementStyle("deleted_system_queue", $COMPONENT_DELETE_COLOR, $COMPONENT_FONT_COLOR, $COMPONENT_BORDER_COLOR)
+
+
+UpdateElementStyle("new_container", $COMPONENT_CREATE_COLOR, $COMPONENT_FONT_COLOR, $COMPONENT_BORDER_COLOR)
+UpdateElementStyle("new_container_db", $COMPONENT_CREATE_COLOR, $COMPONENT_FONT_COLOR, $COMPONENT_BORDER_COLOR)
+UpdateElementStyle("new_container_queue", $COMPONENT_CREATE_COLOR, $COMPONENT_FONT_COLOR, $COMPONENT_BORDER_COLOR)
+UpdateElementStyle("updated_container", $COMPONENT_UPDATE_COLOR, $COMPONENT_FONT_COLOR, $COMPONENT_BORDER_COLOR)
+UpdateElementStyle("updated_container_db", $COMPONENT_UPDATE_COLOR, $COMPONENT_FONT_COLOR, $COMPONENT_BORDER_COLOR)
+UpdateElementStyle("updated_container_queue", $COMPONENT_UPDATE_COLOR, $COMPONENT_FONT_COLOR, $COMPONENT_BORDER_COLOR)
+UpdateElementStyle("deleted_container", $COMPONENT_DELETE_COLOR, $COMPONENT_FONT_COLOR, $COMPONENT_BORDER_COLOR)
+UpdateElementStyle("deleted_container_db", $COMPONENT_DELETE_COLOR, $COMPONENT_FONT_COLOR, $COMPONENT_BORDER_COLOR)
+UpdateElementStyle("deleted_container_queue", $COMPONENT_DELETE_COLOR, $COMPONENT_FONT_COLOR, $COMPONENT_BORDER_COLOR)
+
+
 UpdateElementStyle("new_component", $COMPONENT_CREATE_COLOR, $COMPONENT_FONT_COLOR, $COMPONENT_BORDER_COLOR)
 UpdateElementStyle("new_component_db", $COMPONENT_CREATE_COLOR, $COMPONENT_FONT_COLOR, $COMPONENT_BORDER_COLOR)
 UpdateElementStyle("new_component_queue", $COMPONENT_CREATE_COLOR, $COMPONENT_FONT_COLOR, $COMPONENT_BORDER_COLOR)
@@ -68,9 +163,5 @@ UpdateElementStyle("updated_component_queue", $COMPONENT_UPDATE_COLOR, $COMPONEN
 UpdateElementStyle("deleted_component", $COMPONENT_DELETE_COLOR, $COMPONENT_FONT_COLOR, $COMPONENT_BORDER_COLOR)
 UpdateElementStyle("deleted_component_db", $COMPONENT_DELETE_COLOR, $COMPONENT_FONT_COLOR, $COMPONENT_BORDER_COLOR)
 UpdateElementStyle("deleted_component_queue", $COMPONENT_DELETE_COLOR, $COMPONENT_FONT_COLOR, $COMPONENT_BORDER_COLOR)
-
-UpdateElementStyle("updated_component", $COMPONENT_UPDATE_COLOR, $COMPONENT_FONT_COLOR, $COMPONENT_BORDER_COLOR)
-UpdateElementStyle("deleted_component", $COMPONENT_DELETE_COLOR, $COMPONENT_FONT_COLOR, $COMPONENT_BORDER_COLOR)
-
 
 @enduml
